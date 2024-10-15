@@ -52,7 +52,10 @@ class Address extends UuidObject
             $properties['location'] = new Expr(sprintf("(PointFromText('POINT(%s)'))", $properties['location']));
         }
         if (isset($properties['bounding_box'])) {
-            $properties['bounding_box'] = new Expr(sprintf("(PointFromText('POLYGON(%s)'))", $properties['bounding_box']));
+            $properties['bounding_box'] = new Expr(sprintf(
+                "(PointFromText('POLYGON(%s)'))",
+                $properties['bounding_box']
+            ));
         }
 
         return $properties;

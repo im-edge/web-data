@@ -4,6 +4,8 @@ namespace IMEdge\Web\Data\ForeignModel;
 
 class MacAddressBlockRegistration
 {
+    public const DB_TABLE = 'data_mac_address_block';
+
     /** @readonly */
     public string $prefix;
 

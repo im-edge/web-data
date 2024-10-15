@@ -56,10 +56,8 @@ class ZipCode
                     )
                 ),
             ];
-            //  Y as latitude and X as longitude
-            // Breitengrad von München Hauptbahnhof	48.140458 (nördliche Breite)
-            // Längengrad von München Hauptbahnhof	11.557766 (östliche Länge)
-            // I am using Mapinfo and it has Y as latitude and X as longitude.
+            // Y as latitude and X as longitude
+            // I am using Mapinfo, and it has Y as latitude and X as longitude.
             // Breitengrad = Latitude = Y −90, 90
             // Längengrad = Longitude = X −180, 180
             // (easting, northing) or (longitude, latitude) or (x, y)

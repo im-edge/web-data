@@ -4,6 +4,8 @@ namespace IMEdge\Web\Data\ForeignModel;
 
 class AutonomousSystem
 {
+    public const DB_TABLE = 'data_autonomous_system';
+
     /** @readonly */
     public int $asn;
 
