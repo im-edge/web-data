@@ -28,8 +28,10 @@
         "imedge/web-select2": "@dev"
     },
     "require-dev": {
+        "gipfl/translation": ">=0.1",
         "gipfl/zfdb": ">=0.4",
         "gipfl/zfdbstore": ">=0.3",
+        "ipl/html": ">=0.8",
         "phpstan/phpstan": "^1.10",
         "phpunit/phpunit": "^10.3 || ^9.5",
         "psr/log": "^1.0 || ^3.0",
