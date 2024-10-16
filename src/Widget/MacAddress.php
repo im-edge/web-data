@@ -11,9 +11,11 @@ class MacAddress extends BaseHtmlElement
 {
     use TranslationHelper;
 
+    protected const CSS_CLASS = 'imedge-mac-address';
+
     protected $tag = 'span';
     protected $defaultAttributes = [
-        'class' => 'mac-address'
+        'class' => self::CSS_CLASS
     ];
 
     protected string $binaryMacAddress;
@@ -41,32 +43,33 @@ class MacAddress extends BaseHtmlElement
     protected function lookup(): void
     {
         $binaryMac = $this->binaryMacAddress;
+        $prefix = self::CSS_CLASS;
         // TODO: UAA, LAA
         if (MacAddressHelper::isVRRPv4($binaryMac)) {
             $this->description = $this->translate('IPv4 Virtual Router Redundancy Protocol (VRRP)');
             $this->additionalInfo = sprintf('Virtual Router identifier: %s', ord(substr($binaryMac, -1)));
-            $this->extraClass = 'mac-address-special';
+            $this->extraClass = "$prefix-special";
         } elseif (MacAddressHelper::isVRRPv6($binaryMac)) {
             $this->description = $this->translate('IPv6 Virtual Router Redundancy Protocol (VRRP)');
             $this->additionalInfo = sprintf('Virtual Router identifier: %s', ord(substr($binaryMac, -1)));
-            $this->extraClass = 'mac-address-special';
+            $this->extraClass = "$prefix-special";
         } elseif (MacAddressHelper::isMulticast($binaryMac)) {
             $this->description = $this->translate('Multicast MAC Address');
-            $this->extraClass = 'mac-address-multicast';
+            $this->extraClass = "$prefix-multicast";
             $this->isMulticast = true;
         } elseif (MacAddressHelper::isLocallyAdministered($binaryMac)) {
             $this->description = $this->translate('Locally administered, private/random MAC');
-            $this->extraClass = 'mac-address-private';
+            $this->extraClass = "$prefix-private";
             $this->isPrivate = true;
         } elseif ($reg = $this->lookup->getRegistration(MacAddressHelper::toText($this->binaryMacAddress))) {
             $this->description = $reg->company;
             $this->prefix = MacAddressHelper::toPrefixText($reg->prefix, $reg->prefixLength);
             $this->prefixLength = $reg->prefixLength;
             $this->additionalInfo = sprintf('%dbit prefix: %s', $this->prefixLength, $this->prefix);
-            $this->extraClass = 'mac-address-oui';
+            $this->extraClass = "$prefix-oui";
         } else {
             $this->description = $this->translate('Unknown MAC Address');
-            $this->extraClass = 'mac-address-unknown';
+            $this->extraClass = "$prefix-unknown";
         }
     }
 

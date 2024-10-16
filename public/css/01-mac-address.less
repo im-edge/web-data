@@ -1,0 +1,47 @@
+.imedge-mac-address {
+  text-decoration: underline dotted;
+  font-family: "Liberation Mono", "Lucida Console", Courier, monospace;
+  cursor: help;
+  &:after {
+    font-family: 'ifont';
+    font-size: smaller;
+    display: inline-block;
+    width: 1.5em;
+    text-align: right;
+    vertical-align: super;
+    text-decoration: none;
+  }
+}
+.imedge-mac-address-oui {
+  text-decoration-color: @color-ok;
+}
+.imedge-mac-address-multicast {
+  text-decoration-style: double;
+  text-decoration-color: @color-warning-handled;
+}
+.imedge-mac-address-private {
+  // text-decoration-color: @color-pending;
+  text-decoration-color: @gray-light;
+  text-decoration-style: wavy;
+}
+.imedge-mac-address-special {
+  text-decoration-style: solid;
+  text-decoration-color: @color-critical-handled;
+}
+.imedge-mac-address-unknown {
+  text-decoration-color: @color-unknown;
+  text-decoration-style: wavy;
+}
+
+/*
+// Alternative: icons for different kinds of MAC addresses
+.imedge-mac-address-oui:after {
+  content: '\e85a'; // info
+}
+.imedge-mac-address-multicast:after {
+  content: '\e80e'; // sitemap
+}
+.imedge-mac-address-private:after {
+  content: '\e863'; // eye-off
+}
+*/
