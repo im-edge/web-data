@@ -12,7 +12,7 @@ class AutonomousSystem extends BaseHtmlElement
 
     protected $tag = 'span';
     protected $defaultAttributes = [
-        'class' => 'autonomous-system'
+        'class' => 'imedge-autonomous-system'
     ];
 
     /** @readonly  */
