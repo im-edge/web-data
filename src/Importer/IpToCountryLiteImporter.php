@@ -13,8 +13,7 @@ use function sprintf;
 
 class IpToCountryLiteImporter
 {
-    // TODO: use month? dbip-city-lite-2024-06, dbip-city-lite-2024-09...?
-    public const URL = 'https://download.db-ip.com/free/dbip-country-lite-2024-09.csv.gz';
+    public const URL = 'https://download.db-ip.com/free/dbip-country-lite-YYYY-MM.csv.gz';
     public const DB_TABLE = 'data_ip_country_lite';
     protected const MIN_EXPECTED = 500_000;
 
@@ -30,6 +29,8 @@ class IpToCountryLiteImporter
     public function refreshRegistrations(): void
     {
         $url = self::URL;
+        $url = (string) preg_replace('/YYYY/', date('Y'), $url);
+        $url = (string) preg_replace('/MM/', date('m'), $url);
         $rows = $this->downloadUrl($url);
         $cntRows = count($rows);
         $label = 'IP Ranges';
