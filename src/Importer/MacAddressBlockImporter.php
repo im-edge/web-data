@@ -116,7 +116,10 @@ class MacAddressBlockImporter implements LoggerAwareInterface
 
         $firstLine = true;
         $registry = self::REGISTRY_NAMES[$prefixLength];
-        while (false !== ($line = fgetcsv($fp))) {
+        // @ because of SSL_OP_IGNORE_UNEXPECTED_EOF:
+        // fgetcsv(): SSL operation failed with code 1. OpenSSL Error messages:
+        // error:0A000126:SSL routines::unexpected eof while reading
+        while (false !== ($line = @fgetcsv($fp))) {
             if ($firstLine) {
                 // Skip first line, defines columns
                 $firstLine = false;
