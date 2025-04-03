@@ -9,9 +9,10 @@ class DiscoveryRule extends UuidObject
     protected string $tableName = self::TABLE;
 
     protected array $defaultProperties = [
-        'uuid'           => null,
-        'label'          => null,
-        'implementation' => null,
-        'settings'       => null,
+        'uuid'            => null,
+        'label'           => null,
+        'credential_uuid' => null,
+        'implementation'  => null,
+        'settings'        => null,
     ];
 }
