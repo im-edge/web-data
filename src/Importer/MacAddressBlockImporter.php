@@ -35,7 +35,7 @@ class MacAddressBlockImporter implements LoggerAwareInterface
 
     protected Adapter $db;
 
-    public function __construct(Adapter $db, LoggerInterface $logger = null)
+    public function __construct(Adapter $db, ?LoggerInterface $logger = null)
     {
         $this->db = $db;
         $this->logger = $logger ?? new NullLogger();

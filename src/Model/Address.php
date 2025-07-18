@@ -45,7 +45,7 @@ class Address extends UuidObject
         }
     }
 
-    public function getProperties(array $properties = null)
+    public function getProperties(?array $properties = null)
     {
         $properties = parent::getProperties($properties);
         if (isset($properties['location'])) {

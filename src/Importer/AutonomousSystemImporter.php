@@ -20,7 +20,7 @@ class AutonomousSystemImporter
     protected Adapter $db;
     protected LoggerInterface $logger;
 
-    public function __construct(Adapter $db, LoggerInterface $logger = null)
+    public function __construct(Adapter $db, ?LoggerInterface $logger = null)
     {
         $this->db = $db;
         $this->logger = $logger ?? new NullLogger();
