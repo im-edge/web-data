@@ -97,7 +97,7 @@ class IpToCountryLiteImporter
         // TODO: Flag?
         $firstLine = false;
         $properties = ['ip_range_from', 'ip_range_to', 'country_code'];
-        while (false !== ($line = fgetcsv($fp))) {
+        while (false !== ($line = fgetcsv($fp, null, ',', '"', ''))) {
             if ($firstLine) {
                 // Skip first line, defines columns
                 $firstLine = false;

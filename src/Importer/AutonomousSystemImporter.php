@@ -91,7 +91,10 @@ class AutonomousSystemImporter
         }
         $firstLine = true;
         $properties = [];
-        while (false !== ($line = fgetcsv($fp))) {
+        // Using fgetcsv is not an option, as of:
+        //   935,PPS-NET-165,Peter Pan Seafood Co, LLC
+        while (false !== ($line = fgets($fp, 4096))) {
+            $line = explode(',', $line, 3);
             if ($firstLine) {
                 // Skip first line, defines columns
                 $firstLine = false;
@@ -139,7 +142,7 @@ class AutonomousSystemImporter
         foreach ($old as $label => $oldCount) {
             $newCount = $new[$label];
             if ($oldCount === $newCount) {
-                $messages[] = sprintf('There are still %d %d', $oldCount, $label);
+                $messages[] = sprintf('There are still %d %s', $oldCount, $label);
             } else {
                 $messages[] = sprintf('%s went from %d to %d', $label, $oldCount, $newCount);
             }
