@@ -56,6 +56,8 @@ class AutonomousSystemImporter
 
             $cntInsert = 0;
             foreach ($rows as $row) {
+                $row['country_code'] = $row['country-code'];
+                unset($row['country-code']);
                 $this->db->insert(AutonomousSystem::DB_TABLE, $row);
                 $cntInsert++;
             }
@@ -74,6 +76,10 @@ class AutonomousSystemImporter
                 $this->db->rollback();
             } catch (Exception $e) {
             }
+            if (isset($row)) {
+                $label .= ' (' . var_export($row, true) . ')';
+            }
+
             throw new RuntimeException(sprintf('Importing %s failed: %s', $label, $e->getMessage()));
         }
     }
@@ -91,10 +97,7 @@ class AutonomousSystemImporter
         }
         $firstLine = true;
         $properties = [];
-        // Using fgetcsv is not an option, as of:
-        //   935,PPS-NET-165,Peter Pan Seafood Co, LLC
-        while (false !== ($line = fgets($fp, 4096))) {
-            $line = explode(',', $line, 3);
+        while (false !== ($line = fgetcsv($fp, 4096, ',', '"', '\\'))) {
             if ($firstLine) {
                 // Skip first line, defines columns
                 $firstLine = false;
