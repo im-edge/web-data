@@ -15,10 +15,14 @@ class AutonomousSystem
     /** @readonly */
     public string $description;
 
-    public function __construct(int $asn, string $handle, string $description)
+    /** @readonly */
+    public string $countryCode;
+
+    public function __construct(int $asn, string $handle, string $description, string $countryCode)
     {
         $this->asn = $asn;
         $this->handle = $handle;
         $this->description = $description;
+        $this->countryCode = $countryCode;
     }
 }

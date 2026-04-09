@@ -27,6 +27,7 @@ class AutonomousSystemLookup
                 $row->asn,
                 $row->handle,
                 $row->description,
+                $row->country_code,
             );
         }
 
