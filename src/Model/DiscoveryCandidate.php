@@ -2,6 +2,7 @@
 
 namespace IMEdge\Web\Data\Model;
 
+// TODO: drop?
 class DiscoveryCandidate extends UuidObject
 {
     public const TABLE = 'snmp_discovery_candidate';

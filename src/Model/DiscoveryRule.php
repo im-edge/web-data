@@ -10,6 +10,7 @@ class DiscoveryRule extends UuidObject
 
     protected array $defaultProperties = [
         'uuid'            => null,
+        'tenant_uuid'     => null,
         'label'           => null,
         'credential_uuid' => null,
         'implementation'  => null,
