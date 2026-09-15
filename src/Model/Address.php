@@ -13,6 +13,7 @@ class Address extends UuidObject
      */
     protected array $defaultProperties = [
         'uuid'         => null,
+        'tenant_uuid'  => null,
         'street'       => null,
         'zip'          => null,
         'city_name'    => null,

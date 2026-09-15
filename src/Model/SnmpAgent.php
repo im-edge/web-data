@@ -11,6 +11,7 @@ class SnmpAgent extends UuidObject
 
     protected array $defaultProperties = [
         'agent_uuid'       => null,
+        'tenant_uuid'      => null,
         'credential_uuid'  => null,
         'datanode_uuid'    => null,
         'lifecycle_uuid'   => null,

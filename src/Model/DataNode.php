@@ -8,8 +8,9 @@ class DataNode extends UuidObject
 
     protected string $tableName = self::TABLE;
     protected array $defaultProperties = [
-        'uuid'  => null,
-        'label' => null,
+        'uuid'               => null,
+        'tenant_uuid'        => null,
+        'label'              => null,
         'db_stream_position' => null,
         'db_stream_error'    => null,
     ];

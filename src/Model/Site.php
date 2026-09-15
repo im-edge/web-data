@@ -7,7 +7,8 @@ class Site extends UuidObject
     protected string $tableName = 'inventory_site';
 
     protected array $defaultProperties = [
-        'uuid'    => null,
+        'uuid'         => null,
+        'tenant_uuid'  => null,
         'site_name'    => null,
         'site_type'    => null,
         'address_uuid' => null,
