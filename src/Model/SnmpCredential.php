@@ -15,6 +15,7 @@ class SnmpCredential extends UuidObject implements JsonSerializable
     protected array $defaultProperties = [
         'credential_uuid' => null,
         'credential_name' => null,
+        'tenant_uuid'     => null,
         'snmp_version'    => null,
         'security_name'   => null,
         'security_level'  => null,
